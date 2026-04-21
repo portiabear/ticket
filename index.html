@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>購票操作手冊 — 日本東北・北海道</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light only;
+    --paper: #f7f3eb;
+    --white: #ffffff;
+    --ink: #1a1714;
+    --ink-mid: #3d3630;
+    --ink-soft: #6b5f52;
+    --line: #ddd5c4;
+    --step-bg: #f0ebe0;
+    --pass-color: #2d5a3d;
+    --toku-color: #7a2e1a;
+    --window-color: #1e3a5f;
+    --warn: #b83a1a;
+    --gold: #6b4e0f;
+    --tag-pass: #2d5a3d;
+    --tag-toku: #7a2e1a;
+    --tag-window: #1e3a5f;
+    --jp-bg: #1a1714;
+    --jp-text: #f7f3eb;
+    --jp-border: #5a4a3a;
+  }
+
+  html, body {
+    background-color: var(--paper) !important;
+    color: var(--ink) !important;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== TOP HERO ===== */
+  .hero {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 36px 24px 32px;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    color: #a09080;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .hero p {
+    font-size: 14px;
+    color: #c0b09a;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== STICKY NAV ===== */
+  .nav {
+    position: sticky;
+    top: 0;
+    background: rgba(247, 243, 235, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 16px;
+    z-index: 20;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav a {
+    flex-shrink: 0;
+    padding: 5px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 20px;
+    border: 1.5px solid var(--line);
+    color: var(--ink-soft);
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+  .nav a.pass { border-color: var(--pass-color); color: var(--pass-color); }
+  .nav a.toku { border-color: var(--toku-color); color: var(--toku-color); }
+  .nav a.window { border-color: var(--window-color); color: var(--window-color); }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 18px 80px;
+  }
+
+  /* ===== SECTION ===== */
+  .section {
+    margin-top: 48px;
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 24px;
+  }
+  .section-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .badge-pass { background: var(--tag-pass); color: #f7f3eb; }
+  .badge-toku { background: var(--tag-toku); color: #f7f3eb; }
+  .badge-window { background: var(--tag-window); color: #f7f3eb; }
+  .badge-info { background: var(--ink); color: #f7f3eb; }
+
+  .section-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== OVERVIEW BOX ===== */
+  .overview {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .overview-row {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 14px;
+    align-items: start;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+  .overview-day {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    color: var(--ink-soft);
+    font-size: 13px;
+    padding-top: 2px;
+  }
+  .overview-day strong {
+    display: block;
+    font-size: 19px;
+    color: var(--ink);
+  }
+  .overview-route { font-weight: 600; color: var(--ink); line-height: 1.5; }
+  .overview-route small { display: block; font-weight: 400; color: var(--ink-soft); font-size: 13px; margin-top: 2px; }
+  .overview-label {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+    align-self: start;
+    letter-spacing: 0.08em;
+  }
+  .lbl-pass { background: var(--pass-color); color: #f7f3eb; }
+  .lbl-toku { background: var(--toku-color); color: #f7f3eb; }
+  .lbl-cash { background: var(--gold); color: #f7f3eb; }
+
+  /* ===== STEP LIST ===== */
+  .steps {
+    list-style: none;
+    counter-reset: step;
+    display: grid;
+    gap: 0;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
+    counter-increment: step;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-num::before { content: counter(step); }
+  .step-num.pass { background: var(--pass-color); color: #f7f3eb; }
+  .step-num.toku { background: var(--toku-color); color: #f7f3eb; }
+  .step-num.window { background: var(--window-color); color: #f7f3eb; }
+  .step-content {}
+  .step-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+  .step-body {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+  .step-body strong { color: var(--ink); }
+  .step-body a { color: var(--toku-color); text-decoration: underline; }
+
+  /* Screen mockup */
+  .screen {
+    background: #1c1c1e;
+    color: #f5f5f7;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .screen-label {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+  }
+  .screen-field {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .screen-item {
+    background: #2c2c2e;
+    border-radius: 6px;
+    padding: 8px 12px;
+  }
+  .screen-item label {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 3px;
+  }
+  .screen-item span {
+    font-weight: 600;
+    color: #f5f5f7;
+  }
+  .screen-btn {
+    display: block;
+    background: #0a84ff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .tip-box {
+    background: #fef8ec;
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 14px;
+    border-radius: 2px;
+    line-height: 1.65;
+  }
+  .warn-box {
+    background: #fdf0ec;
+    border-left: 3px solid var(--warn);
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 14px;
+    border-radius: 2px;
+    line-height: 1.65;
+    color: var(--ink-mid);
+  }
+  .warn-box strong { color: var(--warn); }
+
+  /* ===== JAPANESE WINDOW CARDS ===== */
+  .window-section-intro {
+    background: var(--window-color);
+    color: #f7f3eb;
+    padding: 18px 20px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .jp-card {
+    background: var(--white);
+    border: 2px solid var(--jp-border);
+    border-radius: 4px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .jp-card-header {
+    background: var(--jp-bg);
+    color: var(--jp-text);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .jp-card-num {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #c8b89a;
+    flex-shrink: 0;
+  }
+  .jp-card-header-text {}
+  .jp-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .jp-card-meta {
+    font-size: 12px;
+    color: #8a7a6a;
+    margin-top: 2px;
+  }
+  .jp-card-body {
+    padding: 20px;
+  }
+  .jp-card-zh {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+    line-height: 1.6;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  /* The actual Japanese text to show */
+  .jp-text {
+    background: var(--jp-bg);
+    color: var(--jp-text);
+    padding: 20px 22px;
+    border-radius: 4px;
+    font-family: 'Shippori Mincho', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+    font-size: 19px;
+    line-height: 2;
+    letter-spacing: 0.05em;
+    border: 2px dashed #5a4a3a;
+    margin-bottom: 12px;
+  }
+  .jp-text .jp-highlight {
+    color: #f0c060;
+    font-weight: 700;
+  }
+  .jp-text .jp-line {
+    display: block;
+    padding: 4px 0;
+  }
+
+  .jp-show-instruction {
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-align: center;
+    padding: 10px;
+    background: var(--step-bg);
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Details table */
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .detail-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .detail-table td:first-child {
+    font-weight: 600;
+    color: var(--ink-soft);
+    width: 90px;
+    white-space: nowrap;
+  }
+
+  /* Pass exchange card */
+  .pass-exchange-card {
+    background: var(--white);
+    border: 1.5px solid var(--pass-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .pass-exchange-card .pec-head {
+    background: var(--pass-color);
+    color: #f7f3eb;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .pass-exchange-card .pec-body {
+    padding: 18px 20px;
+  }
+  .pec-items {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+  .pec-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+  }
+  .pec-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Schedule reminder */
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px;
+  }
+  .schedule-table th {
+    text-align: left;
+    padding: 10px 12px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+  .schedule-table td {
+    padding: 12px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .schedule-table tr:last-child td { border-bottom: none; }
+  .schedule-table td:first-child {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    color: var(--toku-color);
+    white-space: nowrap;
+    width: 90px;
+  }
+  .schedule-table td:nth-child(2) {
+    font-weight: 600;
+    width: 120px;
+  }
+
+  .deadline-urgent {
+    display: inline-block;
+    background: var(--warn);
+    color: white;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  @media (max-width: 480px) {
+    .overview-row { grid-template-columns: 50px 1fr; }
+    .overview-label { grid-column: 2; justify-self: start; margin-top: 6px; }
+    .step { grid-template-columns: 38px 1fr; }
+    .jp-text { font-size: 17px; }
+    .screen-field { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">2026 東北・北海道</div>
+  <h1>購票操作手冊</h1>
+  <p>JR East Pass 兌換 ＋ えきねっと 早鳥票 ＋ 窗口日文紙條</p>
+</div>
+
+<nav class="nav">
+  <a href="#overview">票券總覽</a>
+  <a class="pass" href="#pass">買 Pass</a>
+  <a class="toku" href="#ekinett">えきねっと</a>
+  <a class="window" href="#window">窗口紙條</a>
+  <a href="#schedule">時程提醒</a>
+</nav>
+
+<div class="container">
+
+<!-- ===== OVERVIEW ===== -->
+<section class="section" id="overview">
+  <div class="section-head">
+    <span class="section-badge badge-info">壹</span>
+    <h2 class="section-title">全程票券一覽</h2>
+  </div>
+
+  <div class="overview">
+    <div class="overview-row">
+      <div class="overview-day">Day <strong>1–8</strong></div>
+      <div class="overview-route">JR EAST PASS（5 日券）
+        <small>仙台出發後 Day 4–8 連用，劃位免費</small>
+      </div>
+      <span class="overview-label lbl-pass">買 Pass</span>
+    </div>
+    <div class="overview-row">
+      <div class="overview-day">Day <strong>10</strong></div>
+      <div class="overview-route">新青森 → 新函館北斗（北海道新幹線）
+        <small>えきねっと トクだ値14｜約 ¥4,700/人</small>
+      </div>
+      <span class="overview-label lbl-toku">早鳥票</span>
+    </div>
+    <div class="overview-row">
+      <div class="overview-day">Day <strong>12</strong></div>
+      <div class="overview-route">函館 → 洞爺（特急北斗）
+        <small>えきねっと トクだ値14｜約 ¥4,500/人</small>
+      </div>
+      <span class="overview-label lbl-toku">早鳥票</span>
+    </div>
+    <div class="overview-row">
+      <div class="overview-day">Day <strong>13</strong></div>
+      <div class="overview-route">洞爺 → 登別（特急北斗）
+        <small>洞爺駅窗口現場買｜¥3,770/人</small>
+      </div>
+      <span class="overview-label lbl-cash">窗口買</span>
+    </div>
+    <div class="overview-row">
+      <div class="overview-day">Day <strong>14</strong></div>
+      <div class="overview-route">登別 → 札幌（特急北斗）
+        <small>えきねっと トクだ値14｜約 ¥3,700/人</small>
+      </div>
+      <span class="overview-label lbl-toku">早鳥票</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STEP 1: BUY PASS ===== -->
+<section class="section" id="pass">
+  <div class="section-head">
+    <span class="section-badge badge-pass">貳</span>
+    <h2 class="section-title">買 JR East Pass（現在就買）</h2>
+  </div>
+
+  <div class="warn-box" style="margin-bottom:24px;">
+    <strong>⏰ 現在立刻買</strong>——Pass 從下訂到收到兌換券 e-mail 需要幾天，出發前要確認已拿到兌換碼。
+  </div>
+
+  <ol class="steps">
+    <li class="step">
+      <div class="step-num pass"></div>
+      <div class="step-content">
+        <div class="step-title">打開 KKday 或 Klook 搜尋「JR East Pass 東北」</div>
+        <div class="step-body">
+          兩個都可以買，價格一樣 <strong>¥35,000（約 NT$ 7,700）</strong>。<br>
+          台灣人建議選 <strong>KKday</strong>，台幣付款最方便。<br><br>
+          搜尋關鍵字：「JR EAST PASS 東北 5日」<br>
+          選擇「<strong>5日版</strong>」（不要選 10 日），買 <strong>2 張</strong>（爸、媽各一）。
+        </div>
+        <div class="tip-box">💡 購買後 e-mail 會寄來「兌換碼」或 PDF 兌換券，印出來或截圖存手機。</div>
+      </div>
+    </li>
+
+    <li class="step">
+      <div class="step-num pass"></div>
+      <div class="step-content">
+        <div class="step-title">填寫資料：護照姓名、出生年月日</div>
+        <div class="step-body">
+          護照英文姓名（需完全符合護照），出生日期，<strong>指定啟用日填 2026/05/10</strong>（Day 4）。<br>
+          每人一張，要分別填。
+        </div>
+      </div>
+    </li>
+
+    <li class="step">
+      <div class="step-num pass"></div>
+      <div class="step-content">
+        <div class="step-title">抵達日本後，到 JR 綠色窗口兌換實體 Pass</div>
+        <div class="step-body">
+          <strong>建議在仙台機場或仙台駅辦理</strong>，找「JR EAST Travel Service Center」或「みどりの窓口（綠色窗口）」。<br><br>
+          帶去的東西：
+        </div>
+        <div class="pass-exchange-card" style="margin-top:14px;">
+          <div class="pec-head">兌換需要帶的東西</div>
+          <div class="pec-body">
+            <ul class="pec-items">
+              <li class="pec-item"><span class="pec-icon">🛂</span> 護照（本人持有，需翻開照片頁）</li>
+              <li class="pec-item"><span class="pec-icon">📄</span> 兌換券（印出的 PDF 或手機螢幕截圖）</li>
+              <li class="pec-item"><span class="pec-icon">📅</span> 告知啟用日：「2026年5月10日から使います」</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tip-box" style="margin-top:12px;">
+          💡 兌換完成後，馬上請工作人員順便劃好 Day 4–8 的新幹線座位（免費）：Day 4 仙台↔一ノ関、Day 5 仙台→盛岡、Day 6 盛岡↔角館（こまち 來回）、Day 7 盛岡→新青森、Day 8 みずうみ号巴士座位（要分開跑一次巴士售票窗口）。
+        </div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ===== STEP 2: EKINETT ===== -->
+<section class="section" id="ekinett">
+  <div class="section-head">
+    <span class="section-badge badge-toku">參</span>
+    <h2 class="section-title">えきねっと 早鳥票操作</h2>
+  </div>
+
+  <p style="font-size:15px; color:var(--ink-soft); margin-bottom:24px;">
+    北海道三段特急需要在網路上提前搶票。以下為詳細操作步驟，建議在電腦上操作，步驟比手機容易。
+  </p>
+
+  <ol class="steps">
+
+    <li class="step">
+      <div class="step-num toku"></div>
+      <div class="step-content">
+        <div class="step-title">前往えきねっと並選擇「外国語」介面</div>
+        <div class="step-body">
+          網址：<a href="https://www.eki-net.com" target="_blank">www.eki-net.com</a><br>
+          頁面右上角點「<strong>English</strong>」切換英文介面，操作較直覺。<br>
+          或直接使用日文介面，對照下面的步驟截圖指引也可以。
+        </div>
+      </div>
+    </li>
+
+    <li class="step">
+      <div class="step-num toku"></div>
+      <div class="step-content">
+        <div class="step-title">免費會員註冊（出發前完成）</div>
+        <div class="step-body">
+          點「<strong>新規会員登録</strong>（新用戶註冊）」，填寫：<br>
+          ・e-mail 地址（記住，之後登入用）<br>
+          ・密碼<br>
+          ・姓名（護照英文名）<br>
+          ・護照號碼<br><br>
+          <strong>爸媽各自要有一個帳號</strong>（因為票是綁在個人護照上）。
+        </div>
+        <div class="tip-box">💡 帳號密碼記在手機備忘錄，開賣當天要快速登入。</div>
+      </div>
+    </li>
+
+    <li class="step">
+      <div class="step-num toku"></div>
+      <div class="step-content">
+        <div class="step-title">事前受付（開賣前 1 週就能預登記）</div>
+        <div class="step-body">
+          開賣日前 1 週，進えきねっと 選「<strong>新幹線eチケット</strong>」→「<strong>えきねっと事前受付</strong>」。<br>
+          登記好班次，開賣當下系統自動幫你搶，<strong>比手動搶快很多</strong>。<br><br>
+          三段票各自的事前受付時間（均為下午 2:00 開放登記）：
+          <table class="schedule-table" style="margin-top:14px;">
+            <tr>
+              <th>受付開始</th>
+              <th>搶的票</th>
+              <th>說明</th>
+            </tr>
+            <tr>
+              <td>4/15（三）14:00</td>
+              <td>Day 10 新幹線</td>
+              <td>新青森→新函館北斗，5/10（Day 4）啟用 Pass 後當天不用，5/16（Day 10）搭</td>
+            </tr>
+            <tr>
+              <td>4/21（二）14:00</td>
+              <td>Day 12 北斗</td>
+              <td>函館→洞爺，5/18</td>
+            </tr>
+            <tr>
+              <td>4/23（四）14:00</td>
+              <td>Day 14 北斗</td>
+              <td>登別→札幌，5/20</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </li>
+
+    <li class="step">
+      <div class="step-num toku"></div>
+      <div class="step-content">
+        <div class="step-title">查詢並選擇班次（以 Day 10 為例）</div>
+        <div class="step-body">
+          登入後點「<strong>新幹線eチケット</strong>」。
+        </div>
+        <div class="screen">
+          <div class="screen-label">■ 搜尋畫面</div>
+          <div class="screen-field">
+            <div class="screen-item">
+              <label>出発駅（出發站）</label>
+              <span>新青森</span>
+            </div>
+            <div class="screen-item">
+              <label>到着駅（目的地）</label>
+              <span>新函館北斗</span>
+            </div>
+          </div>
+          <div class="screen-field">
+            <div class="screen-item">
+              <label>乗車日（乘車日期）</label>
+              <span>2026/05/16</span>
+            </div>
+            <div class="screen-item">
+              <label>時刻（時間）</label>
+              <span>10:00 以降</span>
+            </div>
+          </div>
+          <div class="screen-field">
+            <div class="screen-item">
+              <label>大人（成人人數）</label>
+              <span>2名</span>
+            </div>
+            <div class="screen-item">
+              <label>席種（座位）</label>
+              <span>普通車指定席</span>
+            </div>
+          </div>
+          <div class="screen-btn">列車を検索する（查詢班次）</div>
+        </div>
+        <div class="step-body" style="margin-top:14px;">
+          搜尋結果出現後，找標示「<strong>トクだ値</strong>」的班次——旁邊會顯示折扣後金額（比一般票便宜 30–40%）。<br>
+          如果沒看到「トクだ値」字樣，代表該班次早鳥票已售完，選旁邊其他班次試試看。
+        </div>
+        <div class="warn-box" style="margin-top:10px;">
+          <strong>⚠ 注意：</strong>トクだ値 席數有限，開賣當天 10:00 後立刻選，通常 1 小時內就會售完熱門班次。
+        </div>
+      </div>
+    </li>
+
+    <li class="step">
+      <div class="step-num toku"></div>
+      <div class="step-content">
+        <div class="step-title">選好班次後，綁定 IC 卡或選擇取票方式</div>
+        <div class="step-body">
+          付款後會出現兩個選項：<br><br>
+          <strong>方式 A — Suica 直接嗶（最方便）：</strong><br>
+          選「<strong>ICカードで乗車</strong>」，輸入 Suica 卡號，日本現場直接嗶卡進改札，不用取票。<br><br>
+          <strong>方式 B — QR Code 取紙票：</strong><br>
+          選「<strong>QRコードで受け取る</strong>」，到日本車站的指定席券売機掃 QR 取票。
+        </div>
+        <div class="tip-box">💡 建議選方式 A（Suica），不用在窗口排隊，直接進站最省事。</div>
+      </div>
+    </li>
+
+    <li class="step">
+      <div class="step-num toku"></div>
+      <div class="step-content">
+        <div class="step-title">Day 12、14 的票，同樣步驟重複操作</div>
+        <div class="step-body">
+          Day 12（5/18）函館→洞爺，搜尋時填：<br>
+          出発：<strong>函館</strong>　到着：<strong>洞爺</strong>　日期：<strong>2026/05/18</strong>　時刻：<strong>11:00以降</strong>　人數：<strong>2</strong><br>
+          選 <strong>北斗 11〜12時台</strong> 的班次，大約 11:00-12:00 發車，洞爺約 13:00 抵達。<br><br>
+          Day 14（5/20）登別→札幌，搜尋時填：<br>
+          出発：<strong>登別</strong>　到着：<strong>札幌</strong>　日期：<strong>2026/05/20</strong>　時刻：<strong>10:00以降</strong>　人數：<strong>2</strong><br>
+          選 <strong>北斗 10〜11時台</strong>，大約 10:00-11:00 發車，札幌約 11:30 抵達。
+        </div>
+      </div>
+    </li>
+
+  </ol>
+</section>
+
+<!-- ===== STEP 3: WINDOW PHRASES ===== -->
+<section class="section" id="window">
+  <div class="section-head">
+    <span class="section-badge badge-window">肆</span>
+    <h2 class="section-title">窗口日文紙條（直接出示）</h2>
+  </div>
+
+  <div class="window-section-intro">
+    以下每一張「紙條」可以截圖存在手機裡，到各站的みどりの窓口（綠色窗口）把手機給工作人員看，不需要開口說話。
+  </div>
+
+  <!-- Card A: Pass Exchange -->
+  <div class="jp-card">
+    <div class="jp-card-header">
+      <div class="jp-card-num">A</div>
+      <div class="jp-card-header-text">
+        <div class="jp-card-title">Pass 兌換 ＋ 全程劃位</div>
+        <div class="jp-card-meta">Day 4（5/10）仙台駅 みどりの窓口 使用</div>
+      </div>
+    </div>
+    <div class="jp-card-body">
+      <div class="jp-card-zh">
+        📌 用途：到仙台駅（或仙台機場）兌換 JR East Pass，並一次劃好 Day 4–8 所有新幹線座位。
+      </div>
+      <div class="jp-text">
+        <span class="jp-line">JR EAST PASSの引き換えをお願いします。</span>
+        <span class="jp-line">2名分、<span class="jp-highlight">2026年5月10日</span>から有効でお願いします。</span>
+        <span class="jp-line">引き換え後、以下の指定席もお願いできますか？</span>
+        <span class="jp-line">全便、<span class="jp-highlight">隣り合わせ2席</span>でお願いします。</span>
+        <span class="jp-line">──────────────────────</span>
+        <span class="jp-line">① <span class="jp-highlight">5月10日（日）　仙台 10:50発 → 一ノ関</span></span>
+        <span class="jp-line">　　やまびこ号（盛岡方面）</span>
+        <span class="jp-line">② <span class="jp-highlight">5月10日（日）　一ノ関 14:51発 → 仙台</span></span>
+        <span class="jp-line">　　やまびこ号（東京方面）</span>
+        <span class="jp-line">③ <span class="jp-highlight">5月11日（月）　仙台 9:35発 → 盛岡</span></span>
+        <span class="jp-line">　　はやぶさ号（新函館北斗方面）</span>
+        <span class="jp-line">④ <span class="jp-highlight">5月12日（火）　盛岡 10:57発 → 角館</span></span>
+        <span class="jp-line">　　こまち7号（秋田方面）</span>
+        <span class="jp-line">⑤ <span class="jp-highlight">5月12日（火）　角館 → 盛岡</span></span>
+        <span class="jp-line">　　こまち号（東京方面）15時36分ごろ希望</span>
+        <span class="jp-line">⑥ <span class="jp-highlight">5月13日（水）　盛岡 11:26発 → 新青森</span></span>
+        <span class="jp-line">　　はやぶさ号（新青森方面）</span>
+      </div>
+      <div class="jp-show-instruction">📱 このまま窓口スタッフに画面をお見せください</div>
+      <table class="detail-table" style="margin-top:16px;">
+        <tr><td>護照</td><td>需要打開到照片頁，2 本一起交給工作人員</td></tr>
+        <tr><td>兌換券</td><td>印出的 PDF 或截圖給工作人員掃描</td></tr>
+        <tr><td>備注</td><td>座位請求「隣り合わせ2席」= 並排 2 個座位</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Card B: Day 8 Bus reservation -->
+  <div class="jp-card">
+    <div class="jp-card-header">
+      <div class="jp-card-num">B</div>
+      <div class="jp-card-header-text">
+        <div class="jp-card-title">みずうみ号 巴士座位預約</div>
+        <div class="jp-card-meta">Day 7（5/13）晚上，在青森駅 JR バス窗口</div>
+      </div>
+    </div>
+    <div class="jp-card-body">
+      <div class="jp-card-zh">
+        📌 用途：Day 8（5/14）搭乘奧入瀨溪流 JR 巴士。必須前一天預約，拿 JR East Pass 可免費乘車，但要事先劃位。
+      </div>
+      <div class="jp-text">
+        <span class="jp-line">明日のみずうみ号の座席予約をお願いします。</span>
+        <span class="jp-line">・乗車日：<span class="jp-highlight">2026年5月14日（木）</span></span>
+        <span class="jp-line">・乗車駅：<span class="jp-highlight">青森駅</span></span>
+        <span class="jp-line">・降車駅：<span class="jp-highlight">銚子大滝</span></span>
+        <span class="jp-line">・人数：<span class="jp-highlight">2名</span></span>
+        <span class="jp-line">・JR EAST PASSを持っています。</span>
+        <span class="jp-line">帰りの便も予約できますか？</span>
+        <span class="jp-line">（銚子大滝 → 青森駅、午後の便でお願いします）</span>
+      </div>
+      <div class="jp-show-instruction">📱 このまま窓口スタッフに画面をお見せください</div>
+      <div class="warn-box" style="margin-top:12px;">
+        ⚠ 「JR バス東北 窗口」在青森駅內，和 JR 綠色窗口不同，找「バス乗り場」附近。
+      </div>
+    </div>
+  </div>
+
+  <!-- Card C: Day 13 buy ticket -->
+  <div class="jp-card">
+    <div class="jp-card-header">
+      <div class="jp-card-num">C</div>
+      <div class="jp-card-header-text">
+        <div class="jp-card-title">洞爺 → 登別 特急券購買</div>
+        <div class="jp-card-meta">Day 13（5/19）洞爺駅 みどりの窓口 使用</div>
+      </div>
+    </div>
+    <div class="jp-card-body">
+      <div class="jp-card-zh">
+        📌 用途：Day 13 當天在洞爺駅窗口直接買票，不用網路預約。約 ¥3,770/人。
+      </div>
+      <div class="jp-text">
+        <span class="jp-line">本日の特急券を2枚お願いします。</span>
+        <span class="jp-line">・区間：<span class="jp-highlight">洞爺 → 登別</span></span>
+        <span class="jp-line">・列車：<span class="jp-highlight">特急 北斗</span></span>
+        <span class="jp-line">・人数：<span class="jp-highlight">おとな2名</span></span>
+        <span class="jp-line">・席：<span class="jp-highlight">隣り合わせの指定席</span></span>
+        <span class="jp-line">出発時刻は11時ごろがご希望です。</span>
+      </div>
+      <div class="jp-show-instruction">📱 このまま窓口スタッフに画面をお見せください</div>
+    </div>
+  </div>
+
+  <!-- Card D: If トクだ値 sold out, buy Day 10 at window -->
+  <div class="jp-card">
+    <div class="jp-card-header">
+      <div class="jp-card-num">D</div>
+      <div class="jp-card-header-text">
+        <div class="jp-card-title">萬一早鳥票售完 — Day 10 窗口備用</div>
+        <div class="jp-card-meta">Day 10（5/16）新青森駅 みどりの窓口 使用</div>
+      </div>
+    </div>
+    <div class="jp-card-body">
+      <div class="jp-card-zh">
+        📌 用途：如果 えきねっと 早鳥票全售完，抵達新青森後直接到窗口買原價票。約 ¥7,850/人。
+      </div>
+      <div class="jp-text">
+        <span class="jp-line">本日の新幹線指定席券を2枚お願いします。</span>
+        <span class="jp-line">・区間：<span class="jp-highlight">新青森 → 新函館北斗</span></span>
+        <span class="jp-line">・列車：<span class="jp-highlight">北海道新幹線 はやぶさ</span></span>
+        <span class="jp-line">・人数：<span class="jp-highlight">おとな2名</span></span>
+        <span class="jp-line">・席：<span class="jp-highlight">隣り合わせの普通車指定席</span></span>
+        <span class="jp-line">出発時刻は10時～11時ごろがご希望です。</span>
+      </div>
+      <div class="jp-show-instruction">📱 このまま窓口スタッフに画面をお見せください</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== SCHEDULE ===== -->
+<section class="section" id="schedule">
+  <div class="section-head">
+    <span class="section-badge badge-info">伍</span>
+    <h2 class="section-title">購票時程提醒</h2>
+  </div>
+
+  <p style="font-size:15px; color:var(--ink-soft); margin-bottom:20px;">建議在行事曆設好提醒，每個時間點只要完成一件事。</p>
+
+  <table class="schedule-table">
+    <tr>
+      <th>日期</th>
+      <th>要做什麼</th>
+      <th>說明</th>
+    </tr>
+    <tr>
+      <td>現在</td>
+      <td>買 Pass</td>
+      <td>KKday 購買 JR East Pass 5日券 × 2，指定啟用日 5/10</td>
+    </tr>
+    <tr>
+      <td>出發前<br>任意時間</td>
+      <td>えきねっと 註冊</td>
+      <td>爸媽各建一個帳號，記好帳密</td>
+    </tr>
+    <tr>
+      <td>4/15（三）<br>14:00 <span class="deadline-urgent">準時</span></td>
+      <td>事前受付①</td>
+      <td>Day 10 新青森→新函館北斗 えきねっと事前受付登記</td>
+    </tr>
+    <tr>
+      <td>4/21（二）<br>14:00 <span class="deadline-urgent">準時</span></td>
+      <td>事前受付②</td>
+      <td>Day 12 函館→洞爺 事前受付登記</td>
+    </tr>
+    <tr>
+      <td>4/22（三）<br>10:00 <span class="deadline-urgent">準時</span></td>
+      <td>搶 Day 10</td>
+      <td>えきねっと トクだ值14 正式開賣，確認是否搶到</td>
+    </tr>
+    <tr>
+      <td>4/23（四）<br>14:00 <span class="deadline-urgent">準時</span></td>
+      <td>事前受付③</td>
+      <td>Day 14 登別→札幌 事前受付登記</td>
+    </tr>
+    <tr>
+      <td>4/28（二）<br>10:00</td>
+      <td>搶 Day 12</td>
+      <td>函館→洞爺 トクだ值14 開賣</td>
+    </tr>
+    <tr>
+      <td>5/6（三）<br>10:00</td>
+      <td>搶 Day 14</td>
+      <td>登別→札幌 トクだ值14 開賣</td>
+    </tr>
+    <tr>
+      <td>5/7（四）<br>抵日當天</td>
+      <td>兌換 Pass</td>
+      <td>仙台機場或仙台駅窗口，出示護照 + 兌換券，同時劃好全程座位（用紙條 A）</td>
+    </tr>
+    <tr>
+      <td>5/13（三）<br>晚上</td>
+      <td>預約巴士</td>
+      <td>在青森駅 JR バス窗口預約 Day 8 みずうみ号（用紙條 B）</td>
+    </tr>
+    <tr>
+      <td>5/19（二）<br>早上</td>
+      <td>買 Day 13</td>
+      <td>洞爺駅窗口現場購票，洞爺→登別（用紙條 C）</td>
+    </tr>
+  </table>
+
+  <div class="warn-box" style="margin-top:24px;">
+    <strong>若事前受付或搶票都失敗：</strong>別慌，去みどりの窓口用紙條 D 直接買原價票（¥7,850/人），貴一點但一定買得到。Day 12、14 的特急北斗原價也隨時在窗口可買。
+  </div>
+</section>
+
+</div><!-- end container -->
+
+<div style="background: var(--ink); color: #a09080; text-align: center; padding: 28px 20px; font-size: 13px; letter-spacing: 0.2em; margin-top: 40px;">
+  2026 東北・北海道 &nbsp;·&nbsp; 購票操作手冊
+</div>
+
+</body>
+</html>
